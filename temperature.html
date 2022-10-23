@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampere Temperature</title>
+
+    <!--Getting bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Getting the css file-->
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <!--Creating the navbar-->
+    <nav class="navbar navbar-expand-md navbar-dark pt-0">
+        <div class="container-xxl bg-primary">
+            <a href="./index.html" class="navbar-brand fw-bold text-light">Tampere Weather Station</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+            aria-controls="main-nav" aria-expanded="false" aria-label="toggle nav">
+
+             <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="./index.html"> Last Values </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="./temperature.html"> Temperature </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="./light.html"> Light Level </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Creating the container that has the chart canvas, the form where you select the timespan and the table of all the information-->
+    <div class="container">
+        <h1>Temperature:</h1>
+        <canvas id="temperature-chart"></canvas>
+        <br>
+
+        <h2>Select Timespan:</h2>
+        <select class="form-select" id="timespanSelect" name="timespan"> 
+            <option value="0">Now</option>
+            <option value="24">24 Hours</option>
+            <option value="48">48 Hours</option>
+            <option value="72">72 Hours</option>
+            <option value="168">1 Week</option>
+            <option value="720">1 Month</option>
+        </select>
+
+        <br>
+
+        <table class="table table-striped">
+            <thead class="table-primary">
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="temperature-table">
+            </tbody>
+
+        </table>
+
+    </div>
+    
+    <!--Getting bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Getting chart.js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+
+    <!--Running the JavaScript file-->
+    <script src="./temperature.js"></script>
+</body>
+</html>
